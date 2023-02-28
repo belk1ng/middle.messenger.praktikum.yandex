@@ -4,12 +4,14 @@
   "description": "Independent project",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel -p 3000 public/index.html",
-    "build": "parcel build public/index.html --public-url ./"
+    "build": "rm -rf dist && parcel build public/index.html --public-url ./",
+    "start": "rm -rf dist && npm run build && node server/index.js",
+    "dev": "rm -rf dist && parcel -p 3000 public/index.html"
   },
   "author": "belk1ng",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.18.2",
     "node-sass": "^8.0.0"
   },
   "devDependencies": {
