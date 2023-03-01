@@ -1,19 +1,10 @@
 ---
-id: "root"
+title: "Вход"
 ---
-<html lang='en'>
-	<head>
-		<meta charset='UTF-8' />
-		<title>Chat</title>
+{{!< base}}
 
-		<link rel='stylesheet' href='./assets/styles/reset.scss' />
-		<link rel='stylesheet' href='./assets/styles/index.scss' />
-
-		<script src='/src/index.js' type='module'></script>
-	</head>
-
-	<body>
-		<div id='{{ id }}'>
-		</div>
-	</body>
-</html>
+<div class="page">
+  <main class="page__form">
+    {{> input/input }}
+  </main>
+</div>
