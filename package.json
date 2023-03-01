@@ -5,7 +5,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "npm run clear && parcel build public/index.hbs --public-url ./",
-		"start": "npm run clear && npm run build && node index.js",
+		"start": "npm run build && node index.js",
 		"dev": "npm run clear && parcel -p 3000 public/index.hbs",
 		"clear": "rm -rf dist"
 	},

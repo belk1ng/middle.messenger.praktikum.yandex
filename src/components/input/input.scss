@@ -1,0 +1,16 @@
+@import "/public/assets/styles/variables.scss";
+
+.form-input {
+    border: 0;
+    border-bottom: 1px solid $primary;
+    
+    font-size: 13px;
+    color: $input-color;
+
+    padding: 7px 0 8px;
+
+    &:focus,
+    &:focus-visible {
+        outline: none;
+    }
+}
