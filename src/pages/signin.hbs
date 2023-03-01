@@ -1,0 +1,22 @@
+---
+title: "Sign In"
+css:
+  - /src/components/input/input.scss
+  - /src/components/button/button.scss
+---
+{{!< base}}
+
+<form class="form box">
+  <h1 class="form__title">Sign in</h1>
+  <div class="form__content">
+    <section class="form__inputs">
+      {{> input/input}}
+      {{> input/input}}
+    </section>
+    <section class="form__buttons">
+      {{> button/button text="Sign in" primary="1"}}
+      {{> button/button text="U don't have an account yet?"}}
+    </section>
+  </div>
+</form>
+
