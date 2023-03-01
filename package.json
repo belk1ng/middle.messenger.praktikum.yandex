@@ -1,21 +1,24 @@
 {
-  "name": "yandex-chat",
-  "version": "0.0.0",
-  "description": "Independent project",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && parcel build public/index.html --public-url ./",
-    "start": "rm -rf dist && npm run build && node server/index.js",
-    "dev": "rm -rf dist && parcel -p 3000 public/index.html"
-  },
-  "author": "belk1ng",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.18.2",
-    "node-sass": "^8.0.0"
-  },
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.3",
-    "parcel": "^2.8.3"
-  }
+	"name": "yandex-chat",
+	"version": "0.0.0",
+	"description": "Independent project",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "npm run clear && parcel build public/index.hbs --public-url ./",
+		"start": "npm run clear && npm run build && node index.js",
+		"dev": "npm run clear && parcel -p 3000 public/index.hbs",
+		"clear": "rm -rf dist"
+	},
+	"author": "belk1ng",
+	"license": "MIT",
+	"dependencies": {
+		"express": "^4.18.2",
+		"handlebars": "^4.7.7",
+		"node-sass": "^8.0.0"
+	},
+	"devDependencies": {
+		"@anikin/parcel-transformer-handlebars": "^1.0.9",
+		"@parcel/transformer-sass": "^2.8.3",
+		"parcel": "^2.8.3"
+	}
 }
