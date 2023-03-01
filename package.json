@@ -4,9 +4,9 @@
 	"description": "Independent project",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "npm run clear && parcel build public/index.hbs --public-url ./",
+		"build": "npm run clear && parcel build ./src/pages/signin.hbs",
 		"start": "npm run build && node index.js",
-		"dev": "npm run clear && parcel -p 3000 public/index.hbs",
+		"dev": "npm run clear && parcel -p 3000 ./src/pages/signin.hbs",
 		"clear": "rm -rf dist"
 	},
 	"author": "belk1ng",

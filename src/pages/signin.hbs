@@ -1,8 +1,8 @@
 ---
 title: "Sign In"
 css:
-  - /src/components/input/input.scss
-  - /src/components/button/button.scss
+  - ../components/input/input.scss
+  - ../components/button/button.scss
 ---
 {{!< base}}
 
@@ -10,8 +10,8 @@ css:
   <h1 class="form__title">Sign in</h1>
   <div class="form__content">
     <section class="form__inputs">
-      {{> input/input}}
-      {{> input/input}}
+      {{> input/input placeholder="Enter the username"}}
+      {{> input/input placeholder="Enter the password"}}
     </section>
     <section class="form__buttons">
       {{> button/button text="Sign in" primary="1"}}
