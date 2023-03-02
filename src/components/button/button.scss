@@ -1,23 +1,5 @@
-@import "../../styles/variables.scss";
+@import "../../styles/index.scss";
 
 .form__button {
-    cursor: pointer;
-    border: 0;
-    outline: none;
-
-    background-color: transparent;
-    color: $primary;
-
-    font-size: 11px;
-
-    &--primary {
-        font-size: 13px;
-        font-weight: 500;
-
-        background-color: $primary;
-        color: #fff;
-
-        border-radius: 0.5rem;
-        padding: 12px 70px;
-    }
+    @include button;
 }
