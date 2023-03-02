@@ -6,7 +6,7 @@ const PORT = 3000
 app.use(express.static('dist'))
 
 app.get('/', (_, response) => {
-	response.sendFile(__dirname + '/dist/signin.html')
+	response.sendFile(__dirname + '/dist/index.html')
 })
 
 app.listen(PORT, () => {
