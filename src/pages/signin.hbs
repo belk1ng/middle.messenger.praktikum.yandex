@@ -3,11 +3,10 @@ title: "Sign In"
 css:
   - ../components/form-input/form-input.scss
   - ../components/link/link.scss
-  - ../components/button/button.scss
 ---
 {{!< base}}
 
-<form class="form box">
+<form class="form box form--signin">
   <h1 class="form__title">Sign in</h1>
   <div class="form__content">
     <section class="form__inputs">
@@ -16,7 +15,7 @@ css:
     </section>
     <section class="form__buttons">
       {{> link/link text="Sign in" primary="1" href="./index.hbs"}}
-      {{> button/button text="U don't have an account yet?"}}
+      {{> link/link text="U don't have an account yet?" href="./register.hbs"}}
     </section>
   </div>
 </form>

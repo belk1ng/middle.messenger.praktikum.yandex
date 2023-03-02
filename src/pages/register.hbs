@@ -1,0 +1,28 @@
+---
+title: "Register"
+css:
+  - ../components/form-input/form-input.scss
+  - ../components/link/link.scss
+---
+{{!< base}}
+
+<form class="form box form--register">
+  <h1 class="form__title">Register</h1>
+  <div class="form__content">
+    <section class="form__inputs">
+      {{> form-input/form-input placeholder="Enter the email"}}
+      {{> form-input/form-input placeholder="Enter the login"}}
+      {{> form-input/form-input placeholder="Enter the name"}}
+      {{> form-input/form-input placeholder="Enter the lastname"}}
+      {{> form-input/form-input placeholder="Enter the phone"}}
+      {{> form-input/form-input placeholder="Enter the password"}}
+      {{> form-input/form-input placeholder="Enter the password again"}}
+    </section>
+
+    <section class="form__buttons">
+      {{> link/link text="Register" primary="1" href="./index.hbs"}}
+      {{> link/link text="Sign in" href="./signin.hbs"}}
+    </section>
+  </div>
+</form>
+
