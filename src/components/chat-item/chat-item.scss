@@ -4,13 +4,13 @@
     display: flex;
     justify-content: space-between;
 
-    border-top: 1px solid #EAEAEA;
+    border-top: 1px solid $separator-color;
     padding: 12px 10px;
 
     cursor: pointer;
 
     &:hover {
-        background-color: #E4EDFD;
+        background-color: $primary-blured;
     }
 
     &__info {
@@ -20,7 +20,7 @@
 
         .chat-item__time {
             font-size: 9px;
-            color: #999999;
+            color: $secondary;
         }
 
         .chat-item__unread {
@@ -33,7 +33,7 @@
             height: 20px;
 
             font-size: 11px;
-            color: #FFFFFF;
+            color: $white;
             background-color: $primary;
         }
     }
@@ -45,7 +45,7 @@
 
         .chat-item__name {
             font-weight: 600;
-            color: #1E1E11;
+            color: $text-color;
             font-size: 13px;
             line-height: 13px;
         }
@@ -53,7 +53,7 @@
         .chat-item__message {
             font-size: 12px;
             line-height: 15px;
-            color: #999999;
+            color: $secondary;
 
             display: -webkit-box;
             -webkit-box-orient: vertical;
@@ -66,7 +66,7 @@
         max-width: 47px;
         max-height: 47px;
         width: 100%;
-        background: #EFEFEF;
+        background: $secondary-blured;
         border-radius: 50px;
         margin-right: 10px;
     }

@@ -1,3 +1,5 @@
+@import "../styles/variables.scss";
+
 .error-page {
     display: flex;
     flex-direction: column;
@@ -17,6 +19,6 @@
     &__code,
     &__text {
         text-align: center;
-        color: #1E1E1E;
+        color: $text-color;
     }
 }
