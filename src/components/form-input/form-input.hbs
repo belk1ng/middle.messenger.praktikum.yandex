@@ -1,3 +1,7 @@
 <label>
-    <input class="form-input" name="{{ name }}" placeholder="{{ placeholder }}" type="{{ type }}"  />
+    <input class="form-input"
+        {{#if name}}name="{{name}}"{{/if}}
+        {{#if placeholder}}placeholder="{{placeholder}}"{{/if}}
+        {{#if type}}type="{{type}}"{{/if}}
+    />
 </label>
