@@ -21,7 +21,7 @@
     // TODO: create mixin & folder for mixins
     .box {
         box-shadow: 0px 0px 6px $box-shadow;
-        border-radius: 2rem;
+        border-radius: 12px;
         padding: 50px 30px 30px;
     }
     
@@ -44,7 +44,7 @@
 
         .form__title {
             text-align: center;
-            font-size: 1.25rem;
+            font-size: 20px;
             font-weight: 500;
 
             margin-bottom: 40px;
@@ -60,7 +60,7 @@
             .form__buttons {
                 display: flex;
                 flex-direction: column;
-                gap: 1rem;
+                gap: 16px;
             }
         }
     }
@@ -91,7 +91,7 @@
                 .chat-page__profile-link {
                     display: flex;
                     align-items: center;
-                    gap: 0.5rem;
+                    gap: 8px;
     
                     color: $light-grey;
                     font-size: 12px;
@@ -125,7 +125,6 @@
     }
 }
 
-// TODO: refactor rem & px
 @mixin button {
     cursor: pointer;
     border: 0;
@@ -143,7 +142,7 @@
         background-color: $primary;
         color: #fff;
 
-        border-radius: 0.5rem;
+        border-radius: 8px;
         padding: 12px 70px;
     }
 }
