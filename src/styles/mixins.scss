@@ -20,6 +20,10 @@
         border-radius: 8px;
         padding: 12px 70px;
     }
+
+    &--error {
+        color: $error-color;
+    }
 }
 
 @mixin box {
