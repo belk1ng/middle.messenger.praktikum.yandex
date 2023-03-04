@@ -1,24 +1,19 @@
----
-title: "Chats"
-css:
-    - ../components/chat-search/chat-search.scss
-    - ../components/chat-item/chat-item.scss
-    - ../styles/chats.scss
----
-{{!< base}}
+import routes from "../../routes";
+import arrowIcon from "../../../static/assets/icons/chevron-right.svg";
 
+export default `
 <div class="chat-page">
     <section class="chat-page__list">
         <div class="chat-page__list-header">
-            <a class="chat-page__profile-link" href="./profile.hbs">
+            <a class="chat-page__profile-link" href="${routes.profile}">
                 Profile
-                <img src="../assets/icons/chevron-right.svg" alt="Go to Profile" />
+                <img src="${arrowIcon}" alt="Go to profile" />
             </a>
-            {{> chat-search/chat-search}}
+            {{> chat-search}}
         </div>
         <ul class="chat-list">
             {{#each chats}}
-                {{> chat-item/chat-item}}
+                {{> chat-item}}
             {{/each}}
         </ul>
     </section>
@@ -28,3 +23,4 @@ css:
         </p>
     </section>
 </div>
+`

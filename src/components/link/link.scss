@@ -1,4 +1,4 @@
-@import "../../styles/mixins.scss";
+@import "/static/assets/styles/mixins.scss";
 
 .form__link {
     @include button;
@@ -6,3 +6,4 @@
     text-align: center;
     display: block;
 }
+

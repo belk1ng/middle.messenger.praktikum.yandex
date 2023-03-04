@@ -1,3 +1,6 @@
+import hbs from "handlebars";
+
+const template = `
 <a href="../pages/404.hbs">
     <li class="chat-list__item chat-item">
         <img 
@@ -17,3 +20,6 @@
         </div>
     </li>
 </a>
+`
+
+hbs.registerPartial("chat-item", template);
