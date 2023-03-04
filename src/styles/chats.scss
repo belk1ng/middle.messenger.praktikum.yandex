@@ -1,0 +1,59 @@
+@import "../styles/variables.scss";
+@import "../styles/mixins.scss";
+
+.chat-page {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    .chat-page__list {
+        max-width: 310px;
+        width: 100%;
+        height: 100%;
+
+        background-color: $chats-list-bg;
+        border-right: 1px solid $separator-color;
+
+        display: flex;
+        flex-direction: column;
+
+        .chat-page__list-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding: 12px 10px;
+
+            .chat-page__profile-link {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                color: $secondary;
+                font-size: 12px;
+
+                margin-bottom: 23px;
+            }
+        }
+
+        .chat-list {
+            overflow: scroll;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    .chat-page__plug {
+        width: 100%;
+
+        @include flex-center;
+
+        p {
+            color: $secondary;
+            font-size: 12px;
+        }
+    }
+}

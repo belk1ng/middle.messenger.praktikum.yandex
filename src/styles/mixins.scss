@@ -1,0 +1,33 @@
+@import "./variables.scss";
+
+@mixin button {
+    cursor: pointer;
+    border: 0;
+    outline: none;
+
+    background-color: transparent;
+    color: $primary;
+
+    font-size: 11px;
+
+    &--primary {
+        font-size: 13px;
+        font-weight: 500;
+
+        background-color: $primary;
+        color: $white;
+
+        border-radius: 8px;
+        padding: 12px 70px;
+    }
+
+    &--error {
+        color: $error-color;
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

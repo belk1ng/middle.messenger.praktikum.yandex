@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="../styles/fonts.scss">
+    <link rel="stylesheet" href="../styles/reset.scss">
+    <link rel="stylesheet" href="../styles/index.scss">
+    <link rel="stylesheet" href="../styles/error-page.scss">
+    <link rel="stylesheet" href="../components/link/link.scss">
+</head>
+<body>
+    <main id="root">
+        <section class="error-page">
+            <p class="error-page__code">{{code}}</p>
+            <p class="error-page__text">{{text}}</p>
+
+            {{> link/link text="Back to chats" href="../pages/chats.hbs"}}
+        </section>
+    </main>
+</body>
+</html>

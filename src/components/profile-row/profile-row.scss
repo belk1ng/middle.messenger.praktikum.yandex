@@ -1,0 +1,22 @@
+@import "../../styles/variables.scss";
+
+.profile__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 0;
+
+    .profile__field,
+    .profile__value {
+        font-size: 13px;
+    }
+
+    .profile__field {
+        color: $text-color;
+    }
+
+    .profile__value {
+        color: $secondary;
+    }
+}

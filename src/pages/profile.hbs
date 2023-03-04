@@ -1,0 +1,44 @@
+---
+title: "Profile"
+css:
+    - ../components/link/link.scss
+    - ../components/separator/separator.scss
+    - ../components/profile-row/profile-row.scss
+    - ../styles/profile.scss
+---
+{{!< base}}
+
+<section class="profile">
+    <div class="profile__back">
+        <a href="./chats.hbs">
+            <img src="../assets/icons/arrow-back.svg" alt="Get back to chats" />
+        </a>
+    </div>
+
+    <div class="profile__info">
+        <img class="profile__avatar" alt="Your avatar" src="https://avatars.githubusercontent.com/u/62993219?v=4" />
+        <h1 class="profile__name">Name</h1>
+
+        <ul class="profile__list">
+            {{> profile-row/profile-row field="Email" value="pochta@mail.ru"}}
+            {{> separator/separator}}
+            {{> profile-row/profile-row field="Login" value="login"}}
+            {{> separator/separator}}
+            {{> profile-row/profile-row field="First name" value="First"}}
+            {{> separator/separator}}
+            {{> profile-row/profile-row field="Last name" value="Last"}}
+            {{> separator/separator}}
+            {{> profile-row/profile-row field="Username" value="Username"}}
+            {{> separator/separator}}
+            {{> profile-row/profile-row field="Phone" value="88005553535"}}
+        </ul>
+
+        <div class="profile__actions">
+            {{> link/link text="Change personal data" href="./500.hbs"}}
+            {{> separator/separator}}
+            {{> link/link  text="Change password" href="./500.hbs"}}
+            {{> separator/separator}}
+            {{> link/link text="Sign out" href="./signin.hbs" modificator="error"}}
+        </div>
+    </div>
+</section>

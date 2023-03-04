@@ -1,0 +1,29 @@
+---
+title: "Index Page"
+css:
+    - ../components/link/link.scss
+---
+{{!< base}}
+
+<nav class="pages">
+    <ul class="pages__list">
+        <li class="pages__item">
+            {{> link/link href="../pages/register.hbs" text="Registration page"}}
+        </li>
+        <li class="pages__item">
+            {{> link/link href="../pages/profile.hbs" text="Profile page"}}
+        </li>
+        <li class="pages__item">
+            {{> link/link href="../pages/signin.hbs" text="Sign In page"}}
+        </li>
+        <li class="pages__item">
+            {{> link/link href="../pages/chats.hbs" text="Chats page"}}
+        </li>
+        <li class="pages__item">
+            {{> link/link href="../pages/404.hbs" text="404 page"}}
+        </li>
+        <li class="pages__item">
+            {{> link/link href="../pages/500.hbs" text="500 page"}}
+        </li>
+    </ul>
+</nav>

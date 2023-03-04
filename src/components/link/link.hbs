@@ -1,0 +1,10 @@
+<a
+    {{#if name}}name="{{name}}"{{/if}}
+    {{#if href}}href="{{href}}"{{/if}}
+    {{#if name}}name="{{name}}"{{/if}}
+    class="form__link{{#if modificator}} form__link--{{modificator}}{{/if}}" 
+    href="{{#if href}}{{href}}{{/if}}"
+    name="{{name}}"
+>
+    {{text}}
+</a>
