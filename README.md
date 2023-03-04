@@ -2,6 +2,10 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/31945808-9c82-47ee-85e1-a901cd302200/deploy-status)](https://app.netlify.com/sites/tangerine-chimera-4fa080/deploys)
 
+## Спринт 1
+
+[Ссылка на Pull Request №1](https://github.com/belk1ng/middle.messenger.praktikum.yandex/pull/2)
+
 ## Проведенные работы
 - К проекту подключен шаблонизатор Handlebars;
 - Интрегрирован препроцессор SCSS;
@@ -16,21 +20,17 @@
 - Настроен Express-сервер для раздачи статики;
 - Настроен автодеплой на Netlify с ветки ```deploy```;
 
-## Команды для сборки и запуска
-
-Сборка билда:
-```
-npm i
-npm run build
-```
-
 Сборка и запуск статического сервера на Express:
 ```
 npm i
 npm run start
 ```
 
-
+Сборка билда:
+```
+npm i
+npm run build
+```
 
 ## Ссылки
 
