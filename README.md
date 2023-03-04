@@ -34,10 +34,10 @@ npm run start
 
 ## Ссылки
 
-[Мокапы в Figma](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1&t=MA0B3I4O352c5rqq-0)
-[Развернутое приложение](https://tangerine-chimera-4fa080.netlify.app/signin.html)
+- [Мокапы в Figma](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1&t=MA0B3I4O352c5rqq-0)
+- [Развернутое приложение](https://tangerine-chimera-4fa080.netlify.app/signin.html)
 
-[Handlebars](https://handlebarsjs.com/) 
-[SCSS](https://sass-lang.com/documentation/)
-[Parcel](https://parceljs.org/docs/)
-[Express](https://devdocs.io/express/)
+- [Handlebars](https://handlebarsjs.com/) 
+- [SCSS](https://sass-lang.com/documentation/)
+- [Parcel](https://parceljs.org/docs/)
+- [Express](https://devdocs.io/express/)
