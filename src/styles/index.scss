@@ -2,10 +2,15 @@
 @import "./mixins.scss";
 
 .pages {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
+    .pages__list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .pages__item a {
+            font-size: 14px;
+        }
+    }
 }
 
 #root {
