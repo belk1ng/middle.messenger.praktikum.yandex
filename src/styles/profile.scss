@@ -1,4 +1,5 @@
 @import "./variables.scss";
+@import "./mixins.scss";
 
 .profile {
     display: flex;
@@ -15,9 +16,7 @@
         background-color: $chats-list-bg;
         border-right: 1px solid $separator-color;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-center;
 
         img {
             cursor: pointer;
@@ -27,9 +26,9 @@
     &__info {
         flex: 1;
         max-width: 510px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    
+        @include flex-center;
+    
         flex-direction: column;
         margin: 0 auto;
 
