@@ -3,7 +3,7 @@ title: "Chats"
 css:
     - ../components/chat-search/chat-search.scss
     - ../components/chat-item/chat-item.scss
-    - ../styles/chat.scss
+    - ../styles/chats.scss
 ---
 {{!< base}}
 
@@ -14,20 +14,12 @@ css:
                 Profile
                 <img src="../assets/icons/chevron-right.svg" />
             </a>
-            {{> chat-search/chat-search }}
+            {{> chat-search/chat-search}}
         </div>
         <ul class="chat-list">
-            {{> chat-item/chat-item }}
-            {{> chat-item/chat-item }}
-            {{> chat-item/chat-item }}
-            {{> chat-item/chat-item }}
-            {{> chat-item/chat-item }}
-            {{> chat-item/chat-item }}
-            {{> chat-item/chat-item }}
-            {{> chat-item/chat-item }}
-            {{> chat-item/chat-item }}
-            {{> chat-item/chat-item }}
-            {{> chat-item/chat-item }}
+            {{#each chats}}
+                {{> chat-item/chat-item}}
+            {{/each}}
         </ul>
     </section>
     <section class="chat-page__plug">
