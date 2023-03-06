@@ -1,5 +1,4 @@
 import routes from "../../routes";
-// import arrowIcon from "../../../static/assets/icons/chevron-right.ts";
 
 export default `
 <div class="chat-page">

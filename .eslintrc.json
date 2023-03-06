@@ -6,11 +6,19 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended"
+    "plugin:@typescript-eslint/eslint-recommended",
+    "airbnb"
   ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts"]
+      }
+    }
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -19,10 +27,10 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "no-unused-vars": "error",
     "@typescript-eslint/no-unused-vars": "error",
-    "no-console": "off",
     "arrow-body-style": ["error", "as-needed"],
-    "@typescript-eslint/consistent-type-definitions": ["error", "type"]
+    "no-console": "off",
+    "quotes": "off",
+    "import/extensions": "off"
   }
 }
