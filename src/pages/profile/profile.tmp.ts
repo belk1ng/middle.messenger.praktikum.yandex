@@ -1,12 +1,9 @@
 import routes from "../../routes";
-import arrowBack from "../../../static/assets/icons/arrow-back.svg";
 
 export default `
 <section class="profile">
     <div class="profile__back">
-        <a href="${routes.chats}">
-            <img src="${arrowBack}" alt="Get back to chats" />
-        </a>
+        <a href="${routes.chats}"></a>
     </div>
 
     <div class="profile__info">

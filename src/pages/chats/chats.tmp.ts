@@ -1,5 +1,5 @@
 import routes from "../../routes";
-import arrowIcon from "../../../static/assets/icons/chevron-right.svg";
+// import arrowIcon from "../../../static/assets/icons/chevron-right.ts";
 
 export default `
 <div class="chat-page">
@@ -7,7 +7,7 @@ export default `
         <div class="chat-page__list-header">
             <a class="chat-page__profile-link" href="${routes.profile}">
                 Profile
-                <img src="${arrowIcon}" alt="Go to profile" />
+                <span class="chat-page__profile-vector"></span>
             </a>
             {{> chat-search}}
         </div>

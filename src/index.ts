@@ -8,6 +8,11 @@ import ServerErrorPage from "./pages/500/500";
 import routes from "./routes";
 
 const root = document.getElementById("root");
+
+if (!root) {
+    throw new Error("root node not found");
+}
+
 const currentPath = window.location.pathname;
 
 if (currentPath === routes.login) {
