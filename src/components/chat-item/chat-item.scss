@@ -2,72 +2,72 @@
 @import "/static/assets/styles/mixins.scss";
 
 .chat-item {
+  display: flex;
+  justify-content: space-between;
+
+  border-top: 1px solid $separator-color;
+  padding: 12px 10px;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-blured;
+  }
+
+  &__info {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 
-    border-top: 1px solid $separator-color;
-    padding: 12px 10px;
-
-    cursor: pointer;
-
-    &:hover {
-        background-color: $primary-blured;
+    .chat-item__time {
+      font-size: 9px;
+      color: $secondary;
     }
 
-    &__info {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    .chat-item__unread {
+      @include flex-center;
 
-        .chat-item__time {
-            font-size: 9px;
-            color: $secondary;
-        }
+      border-radius: 50%;
 
-        .chat-item__unread {
-            @include flex-center;
+      width: 20px;
+      height: 20px;
 
-            border-radius: 50%;
+      font-size: 11px;
+      color: $white;
+      background-color: $primary;
+    }
+  }
 
-            width: 20px;
-            height: 20px;
+  &__person {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 
-            font-size: 11px;
-            color: $white;
-            background-color: $primary;
-        }
+    .chat-item__name {
+      font-weight: 600;
+      color: $text-color;
+      font-size: 13px;
+      line-height: 13px;
     }
 
-    &__person {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
+    .chat-item__message {
+      font-size: 12px;
+      line-height: 15px;
+      color: $secondary;
 
-        .chat-item__name {
-            font-weight: 600;
-            color: $text-color;
-            font-size: 13px;
-            line-height: 13px;
-        }
-
-        .chat-item__message {
-            font-size: 12px;
-            line-height: 15px;
-            color: $secondary;
-
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-            overflow: hidden;
-        }
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
     }
+  }
 
-    &__avatar {
-        max-width: 47px;
-        max-height: 47px;
-        width: 100%;
-        background: $secondary-blured;
-        border-radius: 50px;
-        margin-right: 10px;
-    }
+  &__avatar {
+    max-width: 47px;
+    max-height: 47px;
+    width: 100%;
+    background: $secondary-blured;
+    border-radius: 50px;
+    margin-right: 10px;
+  }
 }

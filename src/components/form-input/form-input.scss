@@ -1,14 +1,14 @@
 @import "/static/assets/styles/variables.scss";
 
 .form-input {
-    border: 0;
-    border-radius: 0;
-    border-bottom: 1px solid $primary;
-    
-    font-size: 13px;
-    color: $input-color;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid $primary;
 
-    padding: 7px 0 8px;
+  font-size: 13px;
+  color: $input-color;
 
-    width: 100%;
+  padding: 7px 0 8px;
+
+  width: 100%;
 }

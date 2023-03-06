@@ -14,4 +14,4 @@ export default `
     </section>
   </div>
 </form>
-`
+`;

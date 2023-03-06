@@ -6,6 +6,6 @@ const template = `
 >
     {{text}}
 </button>
-`
+`;
 
 hbs.registerPartial("button", template);

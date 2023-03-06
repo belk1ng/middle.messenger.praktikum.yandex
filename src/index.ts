@@ -10,27 +10,27 @@ import routes from "./routes";
 const root = document.getElementById("root");
 
 if (!root) {
-    throw new Error("root node not found");
+  throw new Error("root node not found");
 }
 
 const currentPath = window.location.pathname;
 
 if (currentPath === routes.login) {
-    console.log("LoginPage content");
-    root.innerHTML = LoginPage;
+  console.log("LoginPage content");
+  root.innerHTML = LoginPage;
 } else if (currentPath === routes.register) {
-    console.log("RegisterPage content");
-    root.innerHTML = RegisterPage;
+  console.log("RegisterPage content");
+  root.innerHTML = RegisterPage;
 } else if (currentPath === routes.profile) {
-    console.log("ProfilePage content");
-    root.innerHTML = ProfilePage;
+  console.log("ProfilePage content");
+  root.innerHTML = ProfilePage;
 } else if (currentPath === routes.chats) {
-    console.log("ChatsPage content");
-    root.innerHTML = ChatsPage;
+  console.log("ChatsPage content");
+  root.innerHTML = ChatsPage;
 } else if (currentPath === routes.error) {
-    console.log("500 Page content");
-    root.innerHTML = ServerErrorPage;
+  console.log("500 Page content");
+  root.innerHTML = ServerErrorPage;
 } else {
-    console.log("404 Page content");
-    root.innerHTML = NotFoundPage;
+  console.log("404 Page content");
+  root.innerHTML = NotFoundPage;
 }

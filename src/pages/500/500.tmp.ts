@@ -7,4 +7,4 @@ export default `
 
     {{> link text="Back to chats" href="${routes.chats}"}}
 </section>
-`
+`;

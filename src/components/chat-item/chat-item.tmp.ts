@@ -20,6 +20,6 @@ const template = `
         </div>
     </li>
 </a>
-`
+`;
 
 hbs.registerPartial("chat-item", template);

@@ -2,66 +2,66 @@
 @import "./mixins.scss";
 
 .chat-page {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  .chat-page__list {
+    max-width: 310px;
     width: 100%;
     height: 100%;
 
+    background-color: $chats-list-bg;
+    border-right: 1px solid $separator-color;
+
     display: flex;
+    flex-direction: column;
 
-    .chat-page__list {
-        max-width: 310px;
-        width: 100%;
-        height: 100%;
+    .chat-page__list-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 12px 10px;
 
-        background-color: $chats-list-bg;
-        border-right: 1px solid $separator-color;
-
+      .chat-page__profile-link {
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        gap: 8px;
 
-        .chat-page__list-header {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            padding: 12px 10px;
+        color: $secondary;
+        font-size: 12px;
 
-            .chat-page__profile-link {
-                display: flex;
-                align-items: center;
-                gap: 8px;
+        margin-bottom: 23px;
+      }
 
-                color: $secondary;
-                font-size: 12px;
+      .chat-page__profile-vector {
+        width: 4px;
+        height: 8px;
 
-                margin-bottom: 23px;
-            }
-
-            .chat-page__profile-vector {
-                width: 4px;
-                height: 8px;
-
-                background: url(../icons/chevron-right.svg) no-repeat;
-                background-size: cover;
-            }
-        }
-
-        .chat-list {
-            overflow: scroll;
-            scrollbar-width: none;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
-        }
+        background: url(../icons/chevron-right.svg) no-repeat;
+        background-size: cover;
+      }
     }
 
-    .chat-page__plug {
-        width: 100%;
+    .chat-list {
+      overflow: scroll;
+      scrollbar-width: none;
 
-        @include flex-center;
-
-        p {
-            color: $secondary;
-            font-size: 12px;
-        }
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
+  }
+
+  .chat-page__plug {
+    width: 100%;
+
+    @include flex-center;
+
+    p {
+      color: $secondary;
+      font-size: 12px;
+    }
+  }
 }

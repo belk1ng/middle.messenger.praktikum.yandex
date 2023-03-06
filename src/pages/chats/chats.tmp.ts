@@ -23,4 +23,4 @@ export default `
         </p>
     </section>
 </div>
-`
+`;

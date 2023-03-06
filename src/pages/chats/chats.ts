@@ -6,8 +6,8 @@ import "../../components/chat-item/chat-item.tmp";
 const templateHBS = hbs.compile(template);
 
 const data = {
-    chats: ["Dmitry", "Alex", "Roman"]
-}
+  chats: ["Dmitry", "Alex", "Roman"],
+};
 
 const html = templateHBS(data);
 

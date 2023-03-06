@@ -1,4 +1,4 @@
-import hbs from 'handlebars';
+import hbs from "handlebars";
 
 const template = `
 <label>
@@ -8,6 +8,6 @@ const template = `
         {{#if type}}type="{{type}}"{{/if}}
     />
 </label>
-`
+`;
 
 hbs.registerPartial("form-input", template);

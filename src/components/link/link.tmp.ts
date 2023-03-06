@@ -7,6 +7,6 @@ const template = `
 >
     {{text}}
 </a>
-`
+`;
 
 hbs.registerPartial("link", template);

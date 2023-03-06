@@ -6,6 +6,6 @@ const template = `
     <p class="profile__value">{{value}}</p>
 </li>
 
-`
+`;
 
 hbs.registerPartial("profile-row", template);
