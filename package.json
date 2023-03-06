@@ -1,23 +1,24 @@
 {
-	"name": "yandex-chat",
-	"version": "0.1.0",
-	"description": "Independent project",
-	"scripts": {
-		"dev": "npm run clear && parcel -p 3000 ./static/index.html --open --no-cache",
-		"build": "npm run clear && parcel build ./static/index.html --no-cache",
-		"start": "npm run build && node server.js",
-		"clear": "rm -rf dist"
-	},
-	"author": "belk1ng",
-	"license": "MIT",
-	"dependencies": {
-		"express": "4.18.2",
-		"handlebars": "4.7.7",
-		"node-sass": "8.0.0"
-	},
-	"devDependencies": {
-		"@parcel/transformer-sass": "2.8.3",
-		"parcel": "2.8.3",
-		"typescript": "^4.9.5"
-	}
+  "name": "yandex-chat",
+  "version": "0.1.0",
+  "description": "Independent project",
+  "scripts": {
+    "dev": "npm run clear && parcel -p 3000 ./static/index.html --open --no-cache",
+    "build": "npm run clear && parcel build ./static/index.html --no-cache",
+    "start": "npm run build && node server.js",
+    "clear": "rm -rf dist",
+    "prettier": "prettier --write '**/*'"
+  },
+  "author": "belk1ng",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.18.2",
+    "handlebars": "4.7.7",
+    "node-sass": "8.0.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.8.3",
+    "parcel": "2.8.3",
+    "typescript": "^4.9.5"
+  }
 }
