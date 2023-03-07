@@ -7,7 +7,8 @@
     "build": "npm run clear && parcel build ./static/index.html --no-cache",
     "start": "npm run build && node server.js",
     "clear": "rm -rf dist",
-    "prettier": "prettier --write '**/*'"
+    "prettier": "prettier --write '**/*'",
+    "lint": "npx eslint ."
   },
   "author": "belk1ng",
   "license": "MIT",
@@ -18,6 +19,8 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "2.8.3",
+    "@typescript-eslint/eslint-plugin": "5.54.1",
+    "eslint": "8.35.0",
     "eslint-config-airbnb": "19.0.4",
     "parcel": "2.8.3",
     "typescript": "4.9.5"
