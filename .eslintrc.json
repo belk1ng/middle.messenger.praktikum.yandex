@@ -31,6 +31,9 @@
     "arrow-body-style": ["error", "as-needed"],
     "no-console": "off",
     "quotes": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "comma-dangle": "off",
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off"
   }
 }
