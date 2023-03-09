@@ -7,7 +7,6 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended"
-    // "airbnb"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -27,7 +26,8 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "@typescript-eslint/no-unused-vars": "error",
-    "arrow-body-style": ["error", "as-needed"]
+    "no-duplicate-imports": "error",
+    "no-use-before-define": "error",
+    "arrow-body-style": "warn"
   }
 }
