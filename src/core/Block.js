@@ -11,12 +11,6 @@ class Block {
   _element = null;
   _meta = null;
 
-  /** JSDoc
-   * @param {string} tagName
-   * @param {Object} props
-   *
-   * @returns {void}
-   */
   constructor(tagName = "div", props = {}) {
     const eventBus = new EventBus();
     this._meta = {
@@ -102,8 +96,6 @@ class Block {
   }
 
   _makePropsProxy(props) {
-    // Можно и так передать this
-    // Такой способ больше не применяется с приходом ES6+
     const self = this;
 
     return new Proxy(props, {
@@ -114,8 +106,6 @@ class Block {
       set(target, prop, value) {
         target[prop] = value;
 
-        // Запускаем обновление компоненты
-        // Плохой cloneDeep, в следующей итерации нужно заставлять добавлять cloneDeep им самим
         self.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
         return true;
       },
@@ -126,7 +116,6 @@ class Block {
   }
 
   _createDocumentElement(tagName) {
-    // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
     return document.createElement(tagName);
   }
 
