@@ -7,7 +7,7 @@ export enum HTTP_METHODS {
 }
 
 export interface HTTPClientOptions {
-  data?: Record<string, unknown>;
+  data?: Record<string, unknown> | FormData;
   headers?: Record<string, string>;
   timeout?: number;
 }

@@ -65,15 +65,18 @@ class HTTPTransport<T> implements HTTPClient<T> {
 
       const isGetRequest = method === HTTP_METHODS.GET;
 
+      const isContentTypeMultipartFormData =
+        headers && headers["Content-Type"] === "multipart/form-data";
+
       const _url =
-        isGetRequest && data ? `${url}${this.queryStringify(data)}` : url;
+        isGetRequest && data
+          ? `${url}${this.queryStringify(data as Record<string, unknown>)}`
+          : url;
 
       xhr.open(method, _url);
       xhr.timeout = timeout;
 
       xhr.onload = () => {
-        console.log(xhr);
-
         // Only resolve 1**, 2** and 3** response codes
         if (xhr.status < 400) {
           resolve(JSON.parse(xhr.response));
@@ -89,6 +92,7 @@ class HTTPTransport<T> implements HTTPClient<T> {
 
       // Set headers
       const headersEntries = Object.entries(headers);
+
       if (headersEntries.length > 0) {
         headersEntries.forEach(([header, value]) =>
           xhr.setRequestHeader(header, value)
@@ -98,7 +102,11 @@ class HTTPTransport<T> implements HTTPClient<T> {
       if (isGetRequest || !data) {
         xhr.send();
       } else {
-        xhr.send(JSON.stringify(data));
+        xhr.send(
+          isContentTypeMultipartFormData
+            ? (data as FormData)
+            : JSON.stringify(data)
+        );
       }
     });
   };
