@@ -40,7 +40,6 @@ class Block {
 
   init() {
     this._createResources();
-
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
@@ -58,35 +57,50 @@ class Block {
 
   _componentDidUpdate(oldProps, newProps) {
     const response = this.componentDidUpdate(oldProps, newProps);
-    if (!response) {
-      return;
+
+    if (response) {
+      this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
-    this._render();
   }
 
   componentDidUpdate(oldProps, newProps) {
     return oldProps !== newProps;
   }
 
-  setProps = (nextProps) => {
+  setProps(nextProps) {
     if (!nextProps) {
       return;
     }
 
     Object.assign(this.props, nextProps);
-  };
+  }
 
   get element() {
     return this._element;
   }
 
+  _addEvents() {
+    const { events = {} } = this.props;
+
+    Object.entries(events).forEach(([eventName, callback]) =>
+      this.element.addEventListener(eventName, callback)
+    );
+  }
+
+  _removeEvents() {
+    const { events = {} } = this.props;
+
+    Object.entries(events).forEach(([eventName, callback]) =>
+      this.element.removeEventListener(eventName, callback)
+    );
+  }
+
   _render() {
     const block = this.render();
-    // Этот небезопасный метод для упрощения логики
-    // Используйте шаблонизатор из npm или напишите свой безопасный
-    // Нужно не в строку компилировать (или делать это правильно),
-    // либо сразу в DOM-элементы возвращать из compile DOM-ноду
-    this._element.innerHTML = block;
+
+    this._removeEvents();
+    this.element.innerHTML = block;
+    this._addEvents();
   }
 
   render() {}
@@ -99,16 +113,28 @@ class Block {
     const self = this;
 
     return new Proxy(props, {
-      get(target, prop) {
-        const value = target[prop];
+      get(target, field) {
+        if (field.startsWith("_")) {
+          throw new Error("Нет доступа");
+        }
+
+        const value = target[field];
         return typeof value === "function" ? value.bind(target) : value;
       },
-      set(target, prop, value) {
-        target[prop] = value;
 
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
+      set(target, field, value) {
+        if (field.startsWith("_")) {
+          throw new Error("Нет доступа");
+        }
+
+        const _prevProps = { ...target };
+        target[field] = value;
+        const _newProps = target;
+
+        self.eventBus().emit(Block.EVENTS.FLOW_CDU, _prevProps, _newProps);
         return true;
       },
+
       deleteProperty() {
         throw new Error("Нет доступа");
       },
