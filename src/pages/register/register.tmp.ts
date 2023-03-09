@@ -1,4 +1,4 @@
-import routes from "../../routes";
+import { ROUTES } from "../../routes";
 
 export default `
 <form class="form box form--register">
@@ -15,8 +15,8 @@ export default `
     </section>
 
     <section class="form__buttons">
-      {{> link text="Create account" modificator="primary" href="${routes.chats}"}}
-      {{> link text="Sign in" href="${routes.login}"}}
+      {{> link text="Create account" modificator="primary" href="${ROUTES.CHATS}"}}
+      {{> link text="Sign in" href="${ROUTES.LOGIN}"}}
     </section>
   </div>
 </form>

@@ -1,9 +1,9 @@
-import routes from "../../routes";
+import { ROUTES } from "../../routes";
 
 export default `
 <section class="profile">
     <div class="profile__back">
-        <a href="${routes.chats}"></a>
+        <a href="${ROUTES.CHATS}"></a>
     </div>
 
     <div class="profile__info">
@@ -25,11 +25,11 @@ export default `
         </ul>
 
         <div class="profile__actions">
-            {{> link text="Change personal data" href="${routes.error}"}}
+            {{> link text="Change personal data" href="${ROUTES.SERVER_ERROR}"}}
             {{> separator}}
-            {{> link  text="Change password" href="${routes.error}"}}
+            {{> link  text="Change password" href="${ROUTES.SERVER_ERROR}"}}
             {{> separator}}
-            {{> link text="Sign out" href="${routes.login}" modificator="error"}}
+            {{> link text="Sign out" href="${ROUTES.LOGIN}" modificator="error"}}
         </div>
     </div>
 </section>

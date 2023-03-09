@@ -1,10 +1,10 @@
-import routes from "../../routes";
+import { ROUTES } from "../../routes";
 
 export default `
 <div class="chat-page">
     <section class="chat-page__list">
         <div class="chat-page__list-header">
-            <a class="chat-page__profile-link" href="${routes.profile}">
+            <a class="chat-page__profile-link" href="${ROUTES.PROFILE}">
                 Profile
                 <span class="chat-page__profile-vector"></span>
             </a>
