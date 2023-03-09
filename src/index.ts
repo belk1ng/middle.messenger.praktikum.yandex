@@ -5,7 +5,7 @@ import ChatsPage from "./pages/chats/chats";
 import NotFoundPage from "./pages/404/404";
 import ServerErrorPage from "./pages/500/500";
 
-import routes from "./routes";
+import { ROUTES } from "./routes";
 
 const root = document.getElementById("root");
 
@@ -15,15 +15,15 @@ if (!root) {
 
 const currentPath = window.location.pathname;
 
-if (currentPath === routes.login) {
+if (currentPath === ROUTES.LOGIN) {
   root.innerHTML = LoginPage;
-} else if (currentPath === routes.register) {
+} else if (currentPath === ROUTES.REGISTER) {
   root.innerHTML = RegisterPage;
-} else if (currentPath === routes.profile) {
+} else if (currentPath === ROUTES.PROFILE) {
   root.innerHTML = ProfilePage;
-} else if (currentPath === routes.chats) {
+} else if (currentPath === ROUTES.CHATS) {
   root.innerHTML = ChatsPage;
-} else if (currentPath === routes.error) {
+} else if (currentPath === ROUTES.SERVER_ERROR) {
   root.innerHTML = ServerErrorPage;
 } else {
   root.innerHTML = NotFoundPage;

@@ -1,7 +1,7 @@
-export default {
-  profile: "/profile",
-  chats: "/chats",
-  login: "/login",
-  register: "/register",
-  error: "/500",
-};
+export enum ROUTES {
+  "PROFILE" = "/profile",
+  "CHATS" = "/chats",
+  "LOGIN" = "/login",
+  "REGISTER" = "/register",
+  "SERVER_ERROR" = "/500",
+}
