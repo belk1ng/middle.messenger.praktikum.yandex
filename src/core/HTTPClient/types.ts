@@ -6,7 +6,7 @@ export enum HTTP_METHODS {
   DELETE = "DELETE",
 }
 
-export enum ContentTypes {
+export enum CONTENT_TYPES {
   JSON = "application/json",
   FORM_DATA = "multipart/form-data"
 }
