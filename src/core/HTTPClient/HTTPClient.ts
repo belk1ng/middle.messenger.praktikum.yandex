@@ -1,6 +1,7 @@
 import {
   HTTP_METHODS,
   HTTPClient,
+  ContentTypes,
   HTTPClientOptions,
   HTTPClientForRequest,
 } from "./types";
@@ -58,7 +59,7 @@ class HTTPTransport<T> implements HTTPClient<T> {
     options: HTTPClientForRequest,
     timeout = 5000
   ): Promise<T | Error> => {
-    const { data, method, headers = {"Content-Type": "application/json"} } = options;
+    const { data, method, headers = { "Content-Type": ContentTypes.JSON } } = options;
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
@@ -66,9 +67,13 @@ class HTTPTransport<T> implements HTTPClient<T> {
       const isGetRequest = method === HTTP_METHODS.GET;
 
       const isContentTypeMultipartFormData =
-        headers && headers["Content-Type"] === "multipart/form-data";
+        headers && headers["Content-Type"] === ContentTypes.FORM_DATA;
 
       const isDataInstanceOfFormData = data instanceof FormData;
+
+      if (isContentTypeMultipartFormData && !isDataInstanceOfFormData) {
+        headers["Content-Type"] = ContentTypes.JSON;
+      }
 
       const _url =
         isGetRequest && data && !isDataInstanceOfFormData
