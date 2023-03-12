@@ -11,7 +11,10 @@ class Block {
     FLOW_RENDER: "flow:render",
   };
 
+  static ID_ATTRIBUTE = "data-node-id";
+
   _element = null;
+
   _meta = null;
 
   constructor(tagName = "div", props = {}) {
@@ -105,7 +108,22 @@ class Block {
   _getChildren(props) {
     const children = Object.entries(props).reduce(
       (acc, [key, value]) =>
-        value instanceof Block ? { ...acc, [key]: value } : acc,
+        value instanceof Block
+          ? {
+              ...acc,
+              [key]: value._id
+                ? value
+                : {
+                    // Check for id attribute of a component
+                    // If its not provided - add it
+                    ...value,
+                    _id: uuidv4(),
+                    settings: {
+                      withInternalID: true,
+                    },
+                  },
+            }
+          : acc,
       {}
     );
 
@@ -116,7 +134,7 @@ class Block {
     const block = this._compile();
 
     if (this.props?.settings?.withInternalID) {
-      this.element.setAttribute("data-node-id", this._id);
+      this.element.setAttribute(Block.ID_ATTRIBUTE, this._id);
     }
 
     this._removeEvents();
@@ -135,7 +153,7 @@ class Block {
     const propsWithStubs = { ...this.props };
 
     Object.entries(this.children).forEach(([key, child]) => {
-      propsWithStubs[key] = `<div data-node-id="${child._id}"></div>`;
+      propsWithStubs[key] = `<div ${Block.ID_ATTRIBUTE}="${child._id}"></div>`;
     });
 
     const fragment = this._createDocumentElement("template");
@@ -144,7 +162,7 @@ class Block {
 
     Object.values(this.children).map((child) => {
       const stub = fragment.content.querySelector(
-        `[data-node-id="${child._id}"]`
+        `[${Block.ID_ATTRIBUTE}="${child._id}"]`
       );
 
       if (stub) {
