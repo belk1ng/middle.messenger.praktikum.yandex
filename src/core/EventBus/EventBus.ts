@@ -1,6 +1,6 @@
-import { EventBusListeners, EventListener } from "./types";
+import { EventBusSkeleton, EventBusListeners, EventListener } from "./types";
 
-class EventBus<T extends string = string> {
+class EventBus<T extends string = string> implements EventBusSkeleton<T> {
   private listeners: EventBusListeners<T> = {} as EventBusListeners<T>;
 
   on(event: T, callback: EventListener) {
