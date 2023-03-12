@@ -1,4 +1,4 @@
-import EventBus from "./EventBus";
+import EventBus from "./EventBus/EventBus";
 import hbs from "handlebars";
 
 import { v4 as uuidv4 } from "uuid";
@@ -115,17 +115,7 @@ class Block {
         value instanceof Block
           ? {
               ...acc,
-              [key]: value._id
-                ? value
-                : {
-                    // Check for id attribute of a component
-                    // If its not provided - add it
-                    ...value,
-                    _id: uuidv4(),
-                    settings: {
-                      withInternalID: true,
-                    },
-                  },
+              [key]: value,
             }
           : acc,
       {}
