@@ -1,5 +1,6 @@
 import {
   HTTP_METHODS,
+  CONTENT_TYPES,
   HTTPClient,
   HTTPClientOptions,
   HTTPClientForRequest,
@@ -58,7 +59,7 @@ class HTTPTransport<T> implements HTTPClient<T> {
     options: HTTPClientForRequest,
     timeout = 5000
   ): Promise<T | Error> => {
-    const { data, method, headers = {} } = options;
+    const { data, method, headers = { "Content-Type": CONTENT_TYPES.JSON } } = options;
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
@@ -66,29 +67,35 @@ class HTTPTransport<T> implements HTTPClient<T> {
       const isGetRequest = method === HTTP_METHODS.GET;
 
       const isContentTypeMultipartFormData =
-        headers && headers["Content-Type"] === "multipart/form-data";
+        headers && headers["Content-Type"] === CONTENT_TYPES.FORM_DATA;
+
+      const isDataInstanceOfFormData = data instanceof FormData;
+
+      if (isContentTypeMultipartFormData && !isDataInstanceOfFormData) {
+        headers["Content-Type"] = CONTENT_TYPES.JSON;
+      }
 
       const _url =
-        isGetRequest && data
-          ? `${url}${this.queryStringify(data as Record<string, unknown>)}`
+        isGetRequest && data && !isDataInstanceOfFormData
+          ? `${url}${this.queryStringify(data)}`
           : url;
 
       xhr.open(method, _url);
       xhr.timeout = timeout;
 
       xhr.onload = () => {
-        // Only resolve 1**, 2** and 3** response codes
+        // Only resolve responses with 1**, 2** and 3** status codes
         if (xhr.status < 400) {
           resolve(JSON.parse(xhr.response));
         } else {
-          reject(new Error("Error while request"));
+          reject(new Error(`Error status code: ${xhr.status}`));
         }
       };
 
       // Reject _request
-      xhr.onabort = () => reject(new Error("Aborted"));
-      xhr.onerror = () => reject(new Error("Request error"));
-      xhr.ontimeout = () => reject(new Error("Timeout end"));
+      xhr.onabort = () => reject(new Error("Request aborted"));
+      xhr.onerror = () => reject(new Error("Request failed"));
+      xhr.ontimeout = () => reject(new Error("Request timed out"));
 
       // Set headers
       const headersEntries = Object.entries(headers);
@@ -103,8 +110,8 @@ class HTTPTransport<T> implements HTTPClient<T> {
         xhr.send();
       } else {
         xhr.send(
-          isContentTypeMultipartFormData
-            ? (data as FormData)
+          isContentTypeMultipartFormData && isDataInstanceOfFormData
+            ? data
             : JSON.stringify(data)
         );
       }

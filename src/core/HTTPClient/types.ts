@@ -6,6 +6,11 @@ export enum HTTP_METHODS {
   DELETE = "DELETE",
 }
 
+export enum CONTENT_TYPES {
+  JSON = "application/json",
+  FORM_DATA = "multipart/form-data"
+}
+
 export interface HTTPClientOptions {
   data?: Record<string, unknown> | FormData;
   headers?: Record<string, string>;
