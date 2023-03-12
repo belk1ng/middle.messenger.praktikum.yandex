@@ -1,9 +1,9 @@
-class EventBus {
-  constructor() {
-    this.listeners = {};
-  }
+import { EventBusListeners, EventListener } from "./types";
 
-  on(event, callback) {
+class EventBus<T extends string = string> {
+  private listeners: EventBusListeners<T> = {} as EventBusListeners<T>;
+
+  on(event: T, callback: EventListener) {
     if (!this.listeners[event]) {
       this.listeners[event] = [];
     }
@@ -11,9 +11,9 @@ class EventBus {
     this.listeners[event].push(callback);
   }
 
-  off(event, callback) {
+  off(event: T, callback: EventListener) {
     if (!this.listeners[event]) {
-      throw new Error(`Event doesn't exists: ${event}`);
+      throw new Error(`Event is not exists: ${event}`);
     }
 
     this.listeners[event] = this.listeners[event].filter(
@@ -21,9 +21,9 @@ class EventBus {
     );
   }
 
-  emit(event, ...args) {
+  emit(event: T, ...args: unknown[]) {
     if (!this.listeners[event]) {
-      throw new Error(`Event doesn't exists: ${event}`);
+      throw new Error(`Event is not exists: ${event}`);
     }
 
     this.listeners[event].forEach((listener) => listener(...args));
