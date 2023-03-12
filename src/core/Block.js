@@ -55,6 +55,10 @@ class Block {
 
   _componentDidMount() {
     this.componentDidMount();
+
+    Object.values(this.children).map((child) =>
+      child.dispatchComponentDidMount()
+    );
   }
 
   componentDidMount() {
