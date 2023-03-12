@@ -16,6 +16,7 @@ class Block {
 
   constructor(tagName = "div", props = {}) {
     const eventBus = new EventBus();
+
     this._meta = {
       tagName,
       props,
@@ -23,10 +24,11 @@ class Block {
 
     this._id = uuidv4();
 
+    this.children = this._getChildren(props);
+
     this.props = this._makePropsProxy(props);
 
     this.eventBus = () => eventBus;
-
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
   }
@@ -100,6 +102,16 @@ class Block {
     );
   }
 
+  _getChildren(props) {
+    const children = Object.entries(props).reduce(
+      (acc, [key, value]) =>
+        value instanceof Block ? { ...acc, [key]: value } : acc,
+      {}
+    );
+
+    return children;
+  }
+
   _render() {
     const block = this._compile();
 
@@ -108,7 +120,10 @@ class Block {
     }
 
     this._removeEvents();
-    this.element.innerHTML = block;
+
+    this._element.innerHTML = "";
+    this.element.appendChild(block);
+
     this._addEvents();
   }
 
@@ -116,9 +131,28 @@ class Block {
 
   _compile() {
     const template = hbs.compile(this.render());
-    const html = template(this.props);
 
-    return html;
+    const propsWithStubs = { ...this.props };
+
+    Object.entries(this.children).forEach(([key, child]) => {
+      propsWithStubs[key] = `<div data-node-id="${child._id}"></div>`;
+    });
+
+    const fragment = this._createDocumentElement("template");
+
+    fragment.innerHTML = template(propsWithStubs);
+
+    Object.values(this.children).map((child) => {
+      const stub = fragment.content.querySelector(
+        `[data-node-id="${child._id}"]`
+      );
+
+      if (stub) {
+        stub.replaceWith(child.getContent());
+      }
+    });
+
+    return fragment.content;
   }
 
   getContent() {
