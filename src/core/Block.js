@@ -1,6 +1,8 @@
 import EventBus from "./EventBus";
 import hbs from "handlebars";
 
+import { v4 as uuidv4 } from "uuid";
+
 class Block {
   static EVENTS = {
     INIT: "init",
@@ -18,6 +20,8 @@ class Block {
       tagName,
       props,
     };
+
+    this._id = uuidv4();
 
     this.props = this._makePropsProxy(props);
 
@@ -98,6 +102,10 @@ class Block {
 
   _render() {
     const block = this._compile();
+
+    if (this.props?.settings?.withInternalID) {
+      this.element.setAttribute("data-node-id", this._id);
+    }
 
     this._removeEvents();
     this.element.innerHTML = block;
