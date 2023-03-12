@@ -1,4 +1,5 @@
 import EventBus from "./EventBus";
+import hbs from "handlebars";
 
 class Block {
   static EVENTS = {
@@ -96,7 +97,7 @@ class Block {
   }
 
   _render() {
-    const block = this.render();
+    const block = this._compile();
 
     this._removeEvents();
     this.element.innerHTML = block;
@@ -104,6 +105,13 @@ class Block {
   }
 
   render() {}
+
+  _compile() {
+    const template = hbs.compile(this.render());
+    const html = template(this.props);
+
+    return html;
+  }
 
   getContent() {
     return this.element;

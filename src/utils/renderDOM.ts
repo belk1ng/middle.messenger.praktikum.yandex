@@ -1,6 +1,6 @@
 // TODO: change block type to Block
 
-export const render = (rootSelector: string, block: any) => {
+export const renderDOM = (rootSelector: string, block: any) => {
   const root = document.querySelector(rootSelector);
 
   if (!root) {
