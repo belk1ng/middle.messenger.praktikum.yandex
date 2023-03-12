@@ -13,7 +13,7 @@ class EventBus {
 
   off(event, callback) {
     if (!this.listeners[event]) {
-      throw new Error(`Нет события: ${event}`);
+      throw new Error(`Event doesn't exists: ${event}`);
     }
 
     this.listeners[event] = this.listeners[event].filter(
@@ -23,7 +23,7 @@ class EventBus {
 
   emit(event, ...args) {
     if (!this.listeners[event]) {
-      throw new Error(`Нет события: ${event}`);
+      throw new Error(`Event doesn't exists: ${event}`);
     }
 
     this.listeners[event].forEach((listener) => listener(...args));

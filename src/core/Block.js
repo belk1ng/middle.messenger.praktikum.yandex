@@ -115,7 +115,7 @@ class Block {
     return new Proxy(props, {
       get(target, field) {
         if (field.startsWith("_")) {
-          throw new Error("Нет доступа");
+          throw new Error("No access");
         }
 
         const value = target[field];
@@ -124,7 +124,7 @@ class Block {
 
       set(target, field, value) {
         if (field.startsWith("_")) {
-          throw new Error("Нет доступа");
+          throw new Error("No access");
         }
 
         const _prevProps = { ...target };
@@ -136,7 +136,7 @@ class Block {
       },
 
       deleteProperty() {
-        throw new Error("Нет доступа");
+        throw new Error("No access");
       },
     });
   }
