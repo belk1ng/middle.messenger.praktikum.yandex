@@ -2,6 +2,7 @@ import { BlockProps } from "../../core/Block/types";
 import Block from "../../core/Block/Block";
 import { ROUTES } from "../../routes";
 import Button from "../../components/button/button";
+import FormInput from "../../components/form-input/form-input";
 
 class LoginPage extends Block {
   constructor(props?: BlockProps) {
@@ -15,8 +16,8 @@ class LoginPage extends Block {
                 <h1 class="form__title">Sign in</h1>
                 <div class="form__content">
                     <section class="form__inputs">
-                    {{> form-input placeholder="Enter the username" name="login"}}
-                    {{> form-input placeholder="Enter the password" name="password"}}
+                    {{{ loginInput }}}
+                    {{{ passwordInput }}}
                     </section>
                     <section class="form__buttons">
                     {{{ submitButton }}}
@@ -40,6 +41,14 @@ const LoginPageTemplate = new LoginPage({
         console.log(this);
       },
     },
+  }),
+  loginInput: new FormInput({
+    placeholder: "Enter the login",
+    name: "login",
+  }),
+  passwordInput: new FormInput({
+    placeholder: "Enter the password",
+    name: "password",
   }),
 });
 
