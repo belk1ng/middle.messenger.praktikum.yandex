@@ -1,7 +1,7 @@
 import Block from "./Block";
 
 export interface BlockProps {
-  events: Record<
+  events?: Record<
     string,
     (event: KeyboardEvent | MouseEvent, ...args: unknown[]) => void
   >;

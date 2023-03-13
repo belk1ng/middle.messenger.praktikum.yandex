@@ -137,6 +137,8 @@ class Block<T extends BlockProps = BlockProps> {
   _render() {
     const block = this._compile();
 
+    console.log(block);
+
     if (this.props?.settings?.withInternalID) {
       this.element.setAttribute(Block.ID_ATTRIBUTE, this._id);
     }
