@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { BlockProps, BlockMeta, BlockChildren } from "./types";
 
 // TODO: Fix types
+// TODO: remove tagName ???
 
 class Block<T extends BlockProps = BlockProps> {
   static EVENTS = {
