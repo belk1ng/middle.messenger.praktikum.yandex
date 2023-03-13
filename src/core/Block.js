@@ -134,7 +134,7 @@ class Block {
     this._removeEvents();
 
     this._element.innerHTML = "";
-    this.element.appendChild(block);
+    this._element.appendChild(block);
 
     this._addEvents();
   }
