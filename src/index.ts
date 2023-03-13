@@ -1,4 +1,4 @@
-import LoginPage from "./pages/login/login";
+// import LoginPage from "./pages/login/login";
 import RegisterPage from "./pages/register/register";
 import ProfilePage from "./pages/profile/profile";
 import ChatsPage from "./pages/chats/chats";
@@ -6,6 +6,9 @@ import NotFoundPage from "./pages/404/404";
 import ServerErrorPage from "./pages/500/500";
 
 import { ROUTES } from "./routes";
+
+import { renderDOM } from "./utils/renderDOM";
+import LoginPageTemplate from "./pages/login/login";
 
 const root = document.getElementById("root");
 
@@ -16,7 +19,7 @@ if (!root) {
 const currentPath = window.location.pathname;
 
 if (currentPath === ROUTES.LOGIN) {
-  root.innerHTML = LoginPage;
+  renderDOM(LoginPageTemplate);
 } else if (currentPath === ROUTES.REGISTER) {
   root.innerHTML = RegisterPage;
 } else if (currentPath === ROUTES.PROFILE) {

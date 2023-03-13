@@ -135,9 +135,7 @@ class Block<T extends BlockProps = BlockProps> {
   }
 
   _render() {
-    const block = this._compile();
-
-    console.log(block);
+    const block = this._compile() as HTMLElement;
 
     if (this.props?.settings?.withInternalID) {
       this.element.setAttribute(Block.ID_ATTRIBUTE, this._id);
@@ -145,8 +143,7 @@ class Block<T extends BlockProps = BlockProps> {
 
     this._removeEvents();
 
-    this._element.innerHTML = "";
-    this._element.appendChild(block);
+    this._element = block;
 
     this._addEvents();
   }
@@ -162,14 +159,12 @@ class Block<T extends BlockProps = BlockProps> {
       propsWithStubs[key] = `<div ${Block.ID_ATTRIBUTE}="${child._id}"></div>`;
     });
 
-    const fragment = this._createDocumentElement(
-      "template"
-    ) as HTMLTemplateElement;
+    const fragment = this._createDocumentElement("div") as HTMLTemplateElement;
 
     fragment.innerHTML = template(propsWithStubs);
 
     Object.values(this.children).map((child) => {
-      const stub = fragment.content.querySelector(
+      const stub = fragment.querySelector(
         `[${Block.ID_ATTRIBUTE}="${child._id}"]`
       );
 
@@ -178,7 +173,7 @@ class Block<T extends BlockProps = BlockProps> {
       }
     });
 
-    return fragment.content;
+    return fragment.firstElementChild;
   }
 
   getContent() {

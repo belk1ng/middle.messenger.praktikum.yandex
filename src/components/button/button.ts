@@ -9,7 +9,7 @@ class Button extends Block {
   render() {
     return `
         <button
-            class="form__button {{#if class}} {{class}}{{/if}}"
+            class="button form__button{{#if modificator}} form__button--{{modificator}}{{/if}}"
             {{#if type}}type="{{ type }}"{{/if}}
         >
             {{text}}
