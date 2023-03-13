@@ -44,37 +44,43 @@ const RegisterPageTemplate = new RegisterPage({
     events: {
       click: (event) => {
         event.preventDefault();
-        console.log(this);
       },
     },
   }),
   emailInput: new FormInput({
     placeholder: "Enter the email",
     name: "email",
+    type: "email",
   }),
   loginInput: new FormInput({
     placeholder: "Enter the login",
     name: "login",
+    type: "text",
   }),
   firstNameInput: new FormInput({
     placeholder: "Enter the first_name",
     name: "first_name",
+    type: "text",
   }),
   secondNameInput: new FormInput({
     placeholder: "Enter the second name",
     name: "second_name",
+    type: "text",
   }),
   phoneInput: new FormInput({
     placeholder: "Enter the phone",
     name: "phone",
+    type: "phone",
   }),
   passwordInput: new FormInput({
     placeholder: "Enter the password",
     name: "password",
+    type: "password",
   }),
   passwordConfirmInput: new FormInput({
     placeholder: "Enter the password again",
     name: "confirm_password",
+    type: "password",
   }),
 });
 

@@ -49,9 +49,11 @@ export const loginForm = new LoginForm({
   loginInput: new FormInput({
     placeholder: "Enter the login",
     name: "login",
+    type: "text",
   }),
   passwordInput: new FormInput({
     placeholder: "Enter the password",
     name: "password",
+    type: "password",
   }),
 });
