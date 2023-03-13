@@ -107,7 +107,7 @@ class Block<T extends BlockProps = BlockProps> {
     const { events = {} } = this.props;
 
     Object.entries(events).forEach(([eventName, callback]) =>
-      this.element.addEventListener(eventName, callback)
+      this._element.addEventListener(eventName, callback)
     );
   }
 
@@ -115,7 +115,7 @@ class Block<T extends BlockProps = BlockProps> {
     const { events = {} } = this.props;
 
     Object.entries(events).forEach(([eventName, callback]) =>
-      this.element.removeEventListener(eventName, callback)
+      this._element.removeEventListener(eventName, callback)
     );
   }
 

@@ -5,7 +5,7 @@ import Button from "../../components/button/button";
 import FormInput from "../../components/form-input/form-input";
 
 class RegisterPage extends Block {
-  constructor(props?: BlockProps) {
+  constructor(props: BlockProps) {
     super("section", props);
   }
 
