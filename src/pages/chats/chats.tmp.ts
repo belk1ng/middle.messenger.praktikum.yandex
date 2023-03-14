@@ -1,4 +1,4 @@
-import { ROUTES } from "../../routes";
+import { ROUTES } from "@src/routes";
 
 export default `
 <div class="chat-page">

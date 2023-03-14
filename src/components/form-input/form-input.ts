@@ -1,5 +1,5 @@
-import Block from "../../core/Block/Block";
-import { BlockProps } from "../../core/Block/types";
+import Block from "@core/Block/Block";
+import { BlockProps } from "@core/Block/types";
 
 class FormInput extends Block {
   constructor(props?: BlockProps) {

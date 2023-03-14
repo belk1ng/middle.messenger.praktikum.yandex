@@ -1,5 +1,5 @@
-import { BlockProps } from "../../core/Block/types";
-import Block from "../../core/Block/Block";
+import { BlockProps } from "@core/Block/types";
+import Block from "@core/Block/Block";
 import { loginForm } from "./loginForm";
 
 class LoginPage extends Block {

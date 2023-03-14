@@ -2,6 +2,15 @@
   "compilerOptions": {
     "lib": ["es2018", "dom"],
     "baseUrl": ".",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@core/*": ["./src/core/*"],
+      "@components/*": ["./src/components/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@static/*": ["./static/*"],
+      "@styles/*": ["./static/assets/styles/*"]
+    },
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

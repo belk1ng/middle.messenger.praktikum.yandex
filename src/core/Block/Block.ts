@@ -1,4 +1,4 @@
-import EventBus from "../EventBus/EventBus";
+import EventBus from "@core/EventBus/EventBus";
 import hbs from "handlebars";
 import { v4 as uuidv4 } from "uuid";
 import { BlockProps, BlockMeta, BlockChildren } from "./types";

@@ -1,8 +1,8 @@
-import Block from "../../core/Block/Block";
-import { BlockProps } from "../../core/Block/types";
-import { ROUTES } from "../../routes";
-import FormInput from "../../components/form-input/form-input";
-import Button from "../../components/button/button";
+import Block from "@core/Block/Block";
+import { BlockProps } from "@core/Block/types";
+import { ROUTES } from "@src/routes";
+import FormInput from "@components/form-input/form-input";
+import Button from "@components/button/button";
 
 class RegisterForm extends Block {
   constructor(props: BlockProps) {

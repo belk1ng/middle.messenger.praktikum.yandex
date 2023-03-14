@@ -1,5 +1,5 @@
 import { BlockProps } from "src/core/Block/types";
-import Block from "../../core/Block/Block";
+import Block from "@core/Block/Block";
 
 class Button extends Block {
   constructor(props: BlockProps) {
